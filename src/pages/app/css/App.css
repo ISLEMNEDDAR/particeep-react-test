@@ -1,0 +1,14 @@
+.layout_container{
+    height: 100%;
+    background-color: #ff5047;
+    display: flex;
+    flex-direction: column;
+}
+
+.category_select_container{
+    flex : 0.1;
+    width: 50%;
+    min-width: 360px;
+    max-height: 50px;
+}
+

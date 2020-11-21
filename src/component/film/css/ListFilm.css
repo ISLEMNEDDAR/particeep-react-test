@@ -1,0 +1,6 @@
+.list_film_container{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    padding : 10px
+}
