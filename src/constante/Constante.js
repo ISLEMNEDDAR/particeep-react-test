@@ -5,6 +5,10 @@ const sentence = {
     multiselect : {
         default : "Séléctioner une catégorie"
     },
+    pagination : {
+        pageSizeOption : ["4","8","12"],
+        defaultSize : 4
+    },
     error : {
         DATA_NO_LOAD : "can't laod data"
     }

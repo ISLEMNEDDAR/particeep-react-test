@@ -7,7 +7,7 @@ import {dispatchAction} from "../../services/utils/function.service";
 import actions from "../../redux/film/actions";
 const {Option} = Select
 function MultiSelect(){
-    const {categories} = useSelector(state => state.films)
+    const {categories,currentCategory} = useSelector(state => state.films)
     const dispatch = useDispatch()
     function handleChange(value) {
         console.log(`selected ${value}`);
@@ -21,6 +21,7 @@ function MultiSelect(){
                 onChange={handleChange}
                 bordered={false}
                 allowClear
+                value={currentCategory}
             >
                 {categories.map((category,index) => (
                     <Option key={index} value={category} >{category}</Option>

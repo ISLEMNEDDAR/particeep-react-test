@@ -1,44 +1,26 @@
-import React, {Fragment, useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import filmActions from "../../redux/film/actions"
-import {dispatchAction} from "../../services/utils/function.service";
+import React, {Fragment} from "react";
+
 import FilmItem from "./FilmItem";
 import "./css/ListFilm.css"
-import {Row,Spin,Space } from "antd";
+import {Row } from "antd";
 
-function ListFilm(){
-    const {films,currentCategory} = useSelector(state => state.films)
-    const dispatch = useDispatch()
+function ListFilm({films,pageSize,currentPagination}){
 
-    useEffect(()=>{
-        dispatch(dispatchAction(filmActions.GET_FILMS))
-    },[])
-
-    useEffect(()=>{
-        console.log(films)
-    },[films])
-
-    const renderListFilm = (Listfilms,currentCateg)=>{
+    const renderListFilm = ()=>{
+        const calculatePagStart = (pageSize*(currentPagination-1))
+        const calculatePagEnd = pageSize*currentPagination
+        const indexStart = currentPagination===1 ?  calculatePagStart : calculatePagStart
+        const indexEnd =  calculatePagEnd<films.length ? calculatePagEnd : films.length
         return (
             <Fragment>
-                { currentCateg === undefined ? (
-                    <Fragment>
-                        {Listfilms.map((film,index)=>(<FilmItem key={film.id} film={film}/>))}
-                    </Fragment>
-                ) : (
-                    <Fragment>
-                        {Listfilms.filter(film => film.category === currentCateg).map((film,index)=>(<FilmItem key={film.id} film={film}/>))}
-                    </Fragment>
-                )}
+                {films.slice(indexStart,indexEnd).map((film,index)=>(<FilmItem key={film.id} film={film}/>))}
             </Fragment>
         )
     }
-
     return(
         <Row className={"list_film_container"}>
-            {renderListFilm(films,currentCategory)}
+            {renderListFilm()}
         </Row>
-
     )
 }
 export default ListFilm

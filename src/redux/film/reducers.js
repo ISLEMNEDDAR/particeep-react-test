@@ -1,9 +1,13 @@
 import actions from './actions'
+import sentence from "../../constante/Constante";
 
 const initialState = {
     films : [],
-    currentCategory : undefined,
+    filterdFilm : [],
     categories : [],
+    currentCategory : undefined,
+    currentPagination : 1,
+    pageSize : sentence.pagination.defaultSize,
     loading: false,
     error:null,
 }
