@@ -21,7 +21,7 @@ function App(){
                 <div className={"category_select_container boxmargin"}>
                     <MultiSelect/>
                 </div>
-                <FilmContainer/>
+                <FilmContainer films={films}/>
             </Content>) : (
                 <div></div>
                 )}

@@ -8,9 +8,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {dispatchAction} from "../../services/utils/function.service";
 import filmActions from "../../redux/film/actions";
 import actions from "../../redux/film/actions";
-function FilmContainer(){
-    const {films,currentCategory,currentPagination,pageSize,filterdFilm} = useSelector(state => state.films)
+function FilmContainer({films}){
+    const {currentCategory,currentPagination,pageSize,filterdFilm} = useSelector(state => state.films)
     const dispatch = useDispatch()
+
     useEffect(()=>{
         updateFiltredListe()
     },[films, currentCategory])
