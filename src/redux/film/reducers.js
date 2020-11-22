@@ -2,6 +2,8 @@ import actions from './actions'
 
 const initialState = {
     films : [],
+    currentCategory : undefined,
+    categories : [],
     loading: false,
     error:null,
 }

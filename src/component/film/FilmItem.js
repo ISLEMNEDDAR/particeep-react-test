@@ -18,6 +18,11 @@ import actions from "../../redux/film/actions";
 function FilmItem({film}){
     //const {films} = useSelector(state => state.films)
     const dispatch = useDispatch()
+
+    const deleteFilm = ()=>{
+        dispatch(dispatchAction(actions.DELETE_FILM,{filmId : film.id}))
+    }
+
     const renderLike = ()=>{
         return(
             <span>
@@ -66,7 +71,7 @@ function FilmItem({film}){
                         <p >{film.title}</p>
                     </div>
                     <div className={"header_film_close"}>
-                        <DeleteOutlined className={"trash_app"}  onClick={()=>{console.log("delete")}}/>
+                        <DeleteOutlined className={"trash_app"}  onClick={()=>{deleteFilm(film.id)}}/>
                     </div>
                 </div>
                 <div className={"content_film_container flex_row"}>

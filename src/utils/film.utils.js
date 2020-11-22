@@ -31,3 +31,13 @@ export const updateFilmWithLike = (films,filmId,like)=>{
         else return {...film}
     })
 }
+
+export const getCategorie = (listFilm)=>{
+    let categorys = [];
+    // eslint-disable-next-line array-callback-return
+    listFilm.forEach(film => {
+        if(!categorys.includes(film.category)) categorys.push(film.category)
+    })
+    console.log(categorys)
+    return categorys
+}

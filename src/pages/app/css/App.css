@@ -6,9 +6,8 @@
 }
 
 .category_select_container{
-    flex : 0.1;
+    height: 40px;
     width: 50%;
     min-width: 360px;
-    max-height: 50px;
 }
 
